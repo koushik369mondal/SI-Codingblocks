@@ -65,10 +65,10 @@ button {
     min-height: calc(100vh - 70px);
 }
 
-.sidebar {
+/* .sidebar {
     border-right: 1px solid #ddd;
     padding: 25px;
-}
+} */
 
 .content {
     padding: 25px;
@@ -77,4 +77,49 @@ button {
 .right-sidebar {
     border-left: 1px solid #ddd;
     padding: 25px;
+}
+
+.sidebar {
+    padding: 25px;
+
+    border-right: 1px solid #ddd;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sidebar a:hover {
+    color: #000;
+}
+
+.sidebar hr {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+.following {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.following h4 {
+    font-size: 18px;
 }

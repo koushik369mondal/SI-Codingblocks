@@ -193,3 +193,70 @@ button {
     height: 120px;
     object-fit: cover;
 }
+
+.right-sidebar {
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+
+    border-left: 1px solid #ddd;
+}
+
+.right-sidebar section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.staff-card {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.staff-card h4 {
+    margin-top: 5px;
+}
+
+.topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.topics span {
+    padding: 8px 15px;
+    background: #f2f2f2;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.follow-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.follow-card img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.follow-card div {
+    flex: 1;
+}
+
+.follow-card p {
+    color: #666;
+    font-size: 14px;
+}
+
+.follow-card button {
+    padding: 7px 15px;
+    border: 1px solid #000;
+    background: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+}

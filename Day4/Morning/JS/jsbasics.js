@@ -35,3 +35,16 @@ function printEvenNumbers() {
     }
 }
 printEvenNumbers();
+
+// odd numbers
+function printOddNumbers() {
+    var result = [];
+    for (var i = 1; i <= 100; i++) {
+        if (i % 2 !== 0) {
+            result.push(i);
+        }
+    }
+    // console.log(result);
+    console.log(result.join(", "));
+}
+printOddNumbers();

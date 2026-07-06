@@ -9,8 +9,18 @@
 // x = 10;
 // console.log(x);
 
-let message = "Hello, Guys";
-console.log(message);
+{
+    let message = "Hello, Guys";
+    console.log(message);
 
-message = "Hello, I am Kaushik Mandal"; // error: Identifier 'message' has already been declared
+    message = "Hello, I am Kaushik Mandal"; // error: Identifier 'message' has already been declared
+    console.log(message);
+}
+
+{
+    let message = "Hello, World";
+    console.log(message);
+}
+
+var message = "Hello"
 console.log(message);

@@ -4,4 +4,5 @@ let student = {
     height: 5.6
 }
 console.log(student);
-console.log(student.name);
+console.log("Name: " + student.name);
+console.log("Name", student["name"]);

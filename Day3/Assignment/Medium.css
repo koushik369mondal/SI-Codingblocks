@@ -299,3 +299,66 @@ button {
     letter-spacing: -1px;
     color: #000000;
 }
+
+@media (max-width: 1200px) {
+    .layout {
+        grid-template-columns: 1fr 320px;
+    }
+    .sidebar {
+        display: none;
+    }
+    .search {
+        width: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+    .right-sidebar {
+        display: none;
+    }
+    .offer-banner {
+        display: none;
+    }
+    .search {
+        display: none;
+    }
+    .navbar {
+        padding: 0 15px;
+    }
+    .left {
+        gap: 12px;
+    }
+    .right {
+        gap: 15px;
+    }
+    .card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .card img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 32px;
+    }
+    .app-btn,
+    .right a {
+        display: none;
+    }
+    .content {
+        padding: 15px;
+    }
+    .tabs {
+        gap: 20px;
+    }
+    .card h2 {
+        font-size: 24px;
+    }
+}

@@ -3,11 +3,13 @@ function Bank() {
 
     function deposit(x){
         balance += x;
+        console.log("After Deposit: " + balance);
     }
 
     function withdraw(x){
         if(x <= balance){
             balance -= x;
+            console.log("After Withdraw: " + balance);
         } else {
             console.log("Insufficient balance");
         }

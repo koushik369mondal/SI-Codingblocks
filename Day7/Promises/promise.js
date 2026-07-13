@@ -1,13 +1,34 @@
-console.log('Hello');
+console.log('hello');
 
-const promiseOne = new Promise((res, rej) => {
+// const promiseOne = new Promise((res,rej)=>{
+//     setTimeout(()=>{
+//         console.log("coding blocks");
+//     
+//         res();
+//     }, 5000)
+// })
+
+// promiseOne.then(()=>{
+//     console.log('completed');
+// })
+
+
+
+const promiseTwo = new Promise((res, rej) => {
     setTimeout(() => {
-        console.log("Coding Blocks");
-        res();
+        let error = true;
+
+        if (!error) {
+            res({ name: 'xyz', password: '123' });
+        }
+        else {
+            rej('ERROR: something went wrong');
+        }
     }, 5000)
 })
 
-promiseOne.then(() => {
-    console.log("Completed");
+promiseTwo.then((user) => {
+    console.log(user);
+}).catch((error) => {
+    console.log(error);
 })
-

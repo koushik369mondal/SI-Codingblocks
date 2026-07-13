@@ -16,7 +16,7 @@ console.log('hello');
 
 const promiseTwo = new Promise((res, rej) => {
     setTimeout(() => {
-        let error = true;
+        let error = false;
 
         if (!error) {
             res({ name: 'xyz', password: '123' });

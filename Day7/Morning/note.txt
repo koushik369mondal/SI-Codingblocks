@@ -3,3 +3,7 @@ DOM selection
 2.  a. InnerHTML
     b. InnerText
     c. TextContent
+
+documet.querySelector - > select the first one
+
+documet.querySelector - > select everything

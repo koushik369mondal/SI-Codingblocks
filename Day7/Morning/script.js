@@ -14,7 +14,6 @@ sidebar.style.backgroundColor = 'lightgray';
 sidebar.style.height = '50px';
 sidebar.style.width = '60px';
 
-
 content1.style.backgroundColor = 'lightblue';
 content1.style.height = '60px';
 content1.style.width = '70px';

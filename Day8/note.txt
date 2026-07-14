@@ -1,0 +1,17 @@
+MERN -> Node
+
+fs module
+HTTP -> Servers 
+Express
+Middlewares
+Routes
+Database, MongoDB
+Authentication - jwt tokens
+Login Page / Signup Page
+
+fs module-
+    a. write file -> synchronous & asynchronous
+    b. read file 
+
+
+

@@ -1,12 +1,12 @@
 const fs = require('fs');
 
 // WRITE
-fs.writeFileSync('temp.txt', 'Hello World');
-console.log('File Create');
+// fs.writeFileSync('temp.txt', 'Hello World');
+// console.log('File Create');
 
 // READ
-// const data = fs.readFileSync('temp.txt', 'utf8');
-// console.log('File content: ', data);
+const data = fs.readFileSync('temp.txt', 'utf8');
+console.log('File content: ', data);
 
 // UPDATE
 // fs.appendFileSync('temp.txt', '\nNew Data Added.');

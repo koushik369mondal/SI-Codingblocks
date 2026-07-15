@@ -5,12 +5,12 @@ const fs = require('fs');
 // console.log('File Create');
 
 // READ
-const data = fs.readFileSync('temp.txt');
-console.log('File content: ', data);
+// const data = fs.readFileSync('temp.txt', 'utf8');
+// console.log('File content: ', data);
 
 // UPDATE
-// fs.appendFileSync('temp.txt', '\nNew Data Added.');
-// console.log('File Updated.');
+fs.appendFileSync('temp.txt', '\nNew Data Added.');
+console.log('File Updated.');
 
 // DELETE
 // fs.unlinkSync('temp.txt');

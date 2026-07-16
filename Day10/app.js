@@ -16,6 +16,12 @@ app.get('/name', (req, res) => {
     res.send(`Hello ${name}`);
 });
 
+// params
+app.get('/name/:id', (req,res) => {
+    const id = req.params.id;
+    res.send(`Hello my ID is ${id}`);
+})
+
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`); // Note: The instructor is currently typing the console.log statement here

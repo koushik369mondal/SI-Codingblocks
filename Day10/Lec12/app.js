@@ -5,7 +5,7 @@ const app = express();
 
 const PORT = 8001;
 
-const users = require('./MOCK_DATA.json');
+let users = require('./MOCK_DATA.json');
 
 // middleware
 app.use(express.json());
@@ -64,6 +64,42 @@ app.post('/api/users', (req, res) => {
         }
     );
 });
+
+// delete
+// DELETE USER
+app.delete('/api/users/:id', (req, res) => {
+    const id = Number(req.params.id);
+
+    // Check if user exists
+    const user = users.find((user) => user.id === id);
+
+    if (!user) {
+        return res.status(404).json({
+            status: "User not found"
+        });
+    }
+
+    // Remove user
+    users = users.filter((user) => user.id !== id);
+
+    // Save updated data
+    fs.writeFile(
+        './MOCK_DATA.json',
+        JSON.stringify(users, null, 2),
+        (err) => {
+            if (err) {
+                return res.status(500).json({
+                    status: "error"
+                });
+            }
+
+            return res.json({
+                status: "User deleted successfully"
+            });
+        }
+    );
+});
+
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

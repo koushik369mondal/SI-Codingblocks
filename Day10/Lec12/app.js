@@ -1,31 +1,31 @@
-const express = require('express');
-const fs = require('fs');
+const express = require("express");
+const fs = require("fs");
 
 const app = express();
 
 const PORT = 8001;
 
-let users = require('./MOCK_DATA.json');
+let users = require("./MOCK_DATA.json");
 
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // get all user data
-app.get('/users', (req, res) => {
+app.get("/users", (req, res) => {
     res.send(users);
 });
 
-app.get('/api/users', (req, res) => {
+app.get("/api/users", (req, res) => {
     res.send(users);
 });
 
 // get particular data
 // http://localhost:8001/api/users/12
-app.get('/api/users/:id', (req, res) => {
+app.get("/api/users/:id", (req, res) => {
     const id = req.params.id;
 
-    console.log(typeof (id));
+    console.log(typeof id);
 
     const user = users.filter((item) => item.id == id);
 
@@ -35,39 +35,36 @@ app.get('/api/users/:id', (req, res) => {
 });
 
 // http://localhost:8001/api/users/multiple/12,14,15
-app.get('/api/users/multiple/:ids', (req, res) => {
+app.get("/api/users/multiple/:ids", (req, res) => {
+    const idArray = req.params.ids.split(",").map(Number);
 
-    const idArray = req.params.ids.split(',').map(Number);
-
-    const matchedUsers = users.filter(item => idArray.includes(Number(item.id)));
+    const matchedUsers = users.filter((item) =>
+        idArray.includes(Number(item.id)),
+    );
 
     console.log(matchedUsers);
     return res.json(matchedUsers);
 });
 
-app.post('/api/users', (req, res) => {
+app.post("/api/users", (req, res) => {
     const body = req.body;
 
     console.log(body);
 
     users.push({ id: users.length + 1, ...body });
 
-    fs.writeFile(
-        './MOCK_DATA.json',
-        JSON.stringify(users, null, 2),
-        (err) => {
-            if (err) {
-                return res.status(500).json({ status: "Failed" });
-            }
-
-            return res.json({ status: "Successful" });
+    fs.writeFile("./MOCK_DATA.json", JSON.stringify(users, null, 2), (err) => {
+        if (err) {
+            return res.status(500).json({ status: "Failed" });
         }
-    );
+
+        return res.json({ status: "Successful" });
+    });
 });
 
 // delete
 // DELETE USER
-app.delete('/api/users/:id', (req, res) => {
+app.delete("/api/users/:id", (req, res) => {
     const id = Number(req.params.id);
 
     // Check if user exists
@@ -75,7 +72,7 @@ app.delete('/api/users/:id', (req, res) => {
 
     if (!user) {
         return res.status(404).json({
-            status: "User not found"
+            status: "User not found",
         });
     }
 
@@ -83,23 +80,18 @@ app.delete('/api/users/:id', (req, res) => {
     users = users.filter((user) => user.id !== id);
 
     // Save updated data
-    fs.writeFile(
-        './MOCK_DATA.json',
-        JSON.stringify(users, null, 2),
-        (err) => {
-            if (err) {
-                return res.status(500).json({
-                    status: "error"
-                });
-            }
-
-            return res.json({
-                status: "User deleted successfully"
+    fs.writeFile("./MOCK_DATA.json", JSON.stringify(users, null, 2), (err) => {
+        if (err) {
+            return res.status(500).json({
+                status: "error",
             });
         }
-    );
-});
 
+        return res.json({
+            status: "User deleted successfully",
+        });
+    });
+});
 
 // patch - update the selected data
 app.patch("/api/users/:id", (req, res) => {
@@ -125,7 +117,6 @@ app.patch("/api/users/:id", (req, res) => {
         return res.json({ status: "successful" });
     });
 });
-
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

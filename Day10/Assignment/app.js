@@ -36,6 +36,16 @@ app.get('/api/user/:id', (req, res) => {
 })
 
 // Add New User (POST)
+// http://localhost:8001/api/users
+// body -> raw -> JSON
+// eg.
+// {
+//     "first_name": "Hello2",
+//     "last_name": "test2",
+//     "email": "koushik@gmail.com",
+//     "gender": "Male",
+//     "ip_address": "192.168.1.10"
+// }
 app.post('/api/users', (req, res) => {
     const body = req.body;
     const newUser = {
@@ -59,6 +69,33 @@ app.post('/api/users', (req, res) => {
         }
     );
 });
+
+// Update Specific Fields (PATCH)
+app.patch('/api/users/:id', (req, res) => {
+    const id = Number(req.params.id);
+    const user = users.find((item) => item.id === id);
+    if(!user){
+        return res.status(404).json({
+            status: "User Not Found",
+        });
+    }
+    Object.assign(user, req.body);
+    fs.writeFile(
+        '../Lec12/MOCK_DATA.json',
+        JSON.stringify(users, null, 2),
+        (err) => {
+            if(err) {
+                return res.status(500).json({
+                    status: "Failed",
+                });
+            }
+            return res.status(200).json({ 
+                status: "Updated Successfully",
+                user: user,
+            });
+        }
+    )
+})
 
 
 app.listen(PORT, ()=> {

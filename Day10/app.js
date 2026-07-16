@@ -12,6 +12,7 @@ app.get('/', (req, res) => {
 app.get('/name', (req, res) => {
     const name = req.query.q;
     console.log(name);
+    console.log(req.query);
     res.send(`Hello ${name}`);
 });
 

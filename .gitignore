@@ -81,3 +81,7 @@ temp/
 # Scripts folder
 backend/scripts/
 scripts/
+
+# Postman
+.postman/
+postman/

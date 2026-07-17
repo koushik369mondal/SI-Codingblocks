@@ -1,12 +1,12 @@
 const express = require("express");
 const fs = require("fs");
-const path = require("path");
+// const path = require("path");
 
 const router = express.Router();
 
 let users = require("../MOCK_DATA.json");
 
-const filePath = path.join(__dirname, "../MOCK_DATA.json");
+// const filePath = path.join(__dirname, "../MOCK_DATA.json");
 
 // GET All Users
 // GET http://localhost:7001/api/users

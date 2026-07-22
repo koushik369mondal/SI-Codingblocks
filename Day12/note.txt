@@ -1,0 +1,17 @@
+DATABASE 
+
+Creating MODEL for schema using mongoose
+
+Make CONTROLLER which controls operations 
+
+Uisng ROUTES which function will execute
+
+Create connection of your database connection.js
+
+SCHEMA -    a. CREATE
+            b. RAED
+            c. UPDATE
+            d. DELETE
+
+app.js
+
